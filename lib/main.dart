@@ -27,6 +27,7 @@ class MyApp extends StatelessWidget {
         const CustomLocalizationsDelegate(),
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: [
         const Locale('en', ''),
@@ -44,7 +45,10 @@ class CustomLocalizations {
   }
 
   static Map<String, Map<String, String>> _resources = {
-    'en': {'title': 'Demo', 'message': 'Hello World'},
+    'en': {
+      'title': 'Demo', 
+      'message': 'Hello World',
+    },
     'he': {
       'title': 'הדגמה',
       'message': 'שלום עולם',
@@ -83,15 +87,14 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text(CustomLocalizations.of(context).title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              CustomLocalizations.of(context).message,
-            ),
-          ],
+      body: Container(
+              child: Column(
+                children: <Widget>[
+                  Text(
+          CustomLocalizations.of(context).message,
         ),
+                ],
+              ),
       ),
     );
   }
